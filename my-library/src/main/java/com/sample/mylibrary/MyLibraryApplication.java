@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@SpringBootApplication(scanBasePackages= {"com.sample.resources"})
+@SpringBootApplication(scanBasePackages= {"com.sample.resources","com.sample.service"})
 public class MyLibraryApplication {
 	private static final Logger logger = LoggerFactory.getLogger(MyLibraryApplication.class);
 
