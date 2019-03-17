@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.sample.model.Book;
-import com.sample.mylibrary.MyLibraryApplication;
 
 @Service
 public class LibraryServiceImp implements LibraryService {
