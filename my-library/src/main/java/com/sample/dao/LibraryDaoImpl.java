@@ -1,5 +1,5 @@
 package com.sample.dao;
 
-public class LibraryDaoImp {
-
+public class LibraryDaoImpl {
+ 
 }
