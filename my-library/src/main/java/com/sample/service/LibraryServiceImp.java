@@ -35,8 +35,21 @@ public class LibraryServiceImp implements LibraryService {
 	}
 
 	@Override
-	public String deleteById(String bookName) {
-		return bookName;
+	public int deleteById(int id) {
+		return id;
+	}
+
+	@Override
+	public int remove(int price) {
+		return price;
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateBook(int price, Book book) {
+		// TODO Auto-generated method stub
+		logger.info("This Book is updated successfully ");
 	}
 
 }

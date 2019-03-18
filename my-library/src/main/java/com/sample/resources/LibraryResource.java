@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,17 +39,26 @@ public class LibraryResource {
 
 	}
 
-	@RequestMapping(value = "/books1", method=RequestMethod.POST)
+	@RequestMapping(value = "/books1", method = RequestMethod.POST)
 	public ResponseEntity<Object> createBook(@RequestBody Book book) {
 		logger.info("Inside LibraryResource.createBook()");
-		 libraryService.createBook(book);
+		libraryService.createBook(book);
 
 		return new ResponseEntity<>("This Book is created successfully", HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/books/{id}", method=RequestMethod.DELETE)
-	   public ResponseEntity<Object> delete(@PathVariable("id") String id) { 
-	      String remove =libraryService.deleteById(id);
-	      return new ResponseEntity<>(remove, HttpStatus.OK);
-	   }
+	@RequestMapping(value = "/books/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Object> updateProduct(@PathVariable("id") int price, @RequestBody Book book) {
+		logger.info("Inside LibraryResource.updateBook()");
+		libraryService.remove(price);
+		book.setPrice(price);
+		libraryService.updateBook(price, book);
+		return new ResponseEntity<>("Book is updated successsfully", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/books/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Object> delete(@PathVariable("isdn") int id) {
+		int remove = libraryService.deleteById(id);
+		return new ResponseEntity<>(remove, HttpStatus.NO_CONTENT);
+	}
 }
